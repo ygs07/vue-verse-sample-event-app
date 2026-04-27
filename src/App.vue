@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAuth } from './composables/useAuth'
 import { useRouter } from 'vue-router'
+import AppFooter from './components/UI/AppFooter.vue'
 
 const { isAuthenticated, currentUser, userInitials, logout } = useAuth()
 const router = useRouter()
@@ -12,7 +13,7 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-50">
+  <div class="min-h-screen bg-slate-50 flex flex-col">
     <nav class="bg-white border-b border-slate-100 py-4 px-6 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto flex justify-between items-center">
         <router-link to="/" class="text-2xl font-black text-[#42b883] tracking-tighter hover:opacity-80 transition-opacity">
@@ -49,9 +50,11 @@ const handleLogout = () => {
       </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 py-12">
+    <main class="max-w-7xl mx-auto px-6 py-12 flex-1 w-full">
       <RouterView />
     </main>
+
+    <AppFooter />
   </div>
 </template>
 
